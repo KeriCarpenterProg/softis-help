@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Select } from "react-materialize";
 import games from "../utils/helpers"
 
@@ -14,7 +14,7 @@ class DropDown extends React.Component {
       <div>
         <section
           id="search"
-          class="section section-search grey lighten-1 white-text center scrollspy"
+          className="section section-search grey lighten-1 white-text center scrollspy"
         >
           <div className="container">
             <div className="row dropdown-row">

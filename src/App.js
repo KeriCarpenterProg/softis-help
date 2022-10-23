@@ -12,7 +12,7 @@ class App extends React.Component {
     activeGame: 0
   }
   clickButton = (index) => {
-    console.log("I clicked the button and the index value is " + index);
+    // console.log("I clicked the button and the index value is " + index);
     this.setState({ activeGame: index }, () =>
       console.log("This is the value of activeGame " + this.state.activeGame)
     );

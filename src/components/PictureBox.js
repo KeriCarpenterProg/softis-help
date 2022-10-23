@@ -13,6 +13,20 @@ class PictureBox extends React.Component {
     render() {
       const { games } = this.state;
       const {activeGame} = this.props;
+      const a = games[activeGame].screenshots;
+      const b = games[activeGame].name;
+      const urls = a.map((value, index) => (
+        <Slide key={index} image={<img alt="" src={value}/>}>
+        <Caption placement="left">
+          <h3>
+            This is a screenshot number {index}
+          </h3>
+          <h5 className="light grey-text text-lighten-3">
+            The game is {b}
+          </h5>
+        </Caption>
+        </Slide>
+    ));
       return (
         <div>
         <section>
@@ -25,7 +39,8 @@ class PictureBox extends React.Component {
             interval: 6000
           }}
         >
-          <Slide image={<img alt="" src={games[activeGame].screenshots[0]}/>}>
+        {urls}
+{/*         <Slide image={<img alt="" src={games[activeGame].screenshots[0]}/>}>
             <Caption placement="center">
               <h3>
                 This is our big Tagline!
@@ -65,6 +80,7 @@ class PictureBox extends React.Component {
                 </h5>
               </Caption>
             </Slide>
+        */}
           </Slider>
         </section>
           <section

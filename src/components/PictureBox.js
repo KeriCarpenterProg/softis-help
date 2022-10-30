@@ -85,14 +85,14 @@ class PictureBox extends React.Component {
         </section>
           <section
             id="carousel"
-            class="section red lighten-1 white-text scrollspy"
+            className="section red lighten-1 white-text scrollspy"
           >
-            <div class="container">
-              <div class="row">
+            <div className="container">
+              <div className="row">
                   <h5>I want this to be left aligned</h5>
 
                   <div className="col s12">This div is 12-columns wide on all screen sizes</div>
-                  <div class="col s6">6-columns (one-half).  Lorem Ipsum dolor et alignment.  The quick
+                  <div className="col s6">6-columns (one-half).  Lorem Ipsum dolor et alignment.  The quick
                   brown fox jumped over the lazy dog.  This quick brown fox jumped over the lazy dog.</div>
                   <div className="col s6">6-columns (one-half).    Lorem Ipsum dolor et alignment.  The quick
                   brown fox jumped over the lazy dog.  This quick brown fox jumped over the lazy dog.</div>
@@ -101,7 +101,7 @@ class PictureBox extends React.Component {
         </section>
         <section
             id="pictures"
-            class="section green darken-2 white-text scrollspy"
+            className="section green darken-2 white-text scrollspy"
         >
             <div className="container">
                 <div className="row">

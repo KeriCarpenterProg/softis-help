@@ -1,4 +1,4 @@
-const games = [
+let games = [
   {
     name: "Minecraft: Playstation 4 Edition",
     game_id: "93620",
@@ -114,5 +114,7 @@ const games = [
     video: "https://www.youtube.com/embed/3pyfKYwlGhQ",
   },
 ];
+
+
 
 export default games;

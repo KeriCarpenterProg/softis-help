@@ -17,7 +17,7 @@ class Text extends React.Component {
         <img src={value} alt={value} width="100%" />
       </div>
     ));
-    const c = "style={backgroundImage: \"url("+games[activeGame].screenshots[0]+")\",}"
+    // const c = "style={backgroundImage: \"url("+games[activeGame].screenshots[0]+")\",}"
     return (
       <div>
       <div className="parallax-background" style={{
@@ -25,7 +25,7 @@ class Text extends React.Component {
           "url(https://images.igdb.com/igdb/image/upload/t_original/sc6qem.jpg)",
   }}></div>
       <div className="section ">
-        <div class="container">
+        <div className="container">
           <div className="row">
             <div className="col s12 m4">
             <img src={games[activeGame].cover} alt={games[activeGame].name} width="100%"></img>
@@ -44,7 +44,7 @@ class Text extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col s12 m4">
-              <div class="video-container">
+              <div className="video-container">
                 <iframe
                   title={games[activeGame].name}
                   width="560"

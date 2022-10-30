@@ -5,7 +5,6 @@ import SideNav from "./components/SideNav";
 import Text from './components/Text';
 import PictureBox from './components/PictureBox';
 import BottomOfPage from './components/BottomOfPage';
-import ModalBox from './components/ModalBox';
 
 class App extends React.Component {
   state = {
@@ -28,9 +27,9 @@ class App extends React.Component {
           currentIndex={activeGame}
           clickEvent={this.clickButton}
         />
+
         <Text activeGame={activeGame} />
         <PictureBox activeGame={activeGame}/>
-        <ModalBox />
         <BottomOfPage />
       </div>
     );

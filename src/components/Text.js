@@ -20,10 +20,10 @@ class Text extends React.Component {
     // const c = "style={backgroundImage: \"url("+games[activeGame].screenshots[0]+")\",}"
     return (
       <div>
-      <div className="parallax-background" style={{
+      {/* <div className="parallax-background" style={{
         backgroundImage:
           "url(https://images.igdb.com/igdb/image/upload/t_original/sc6qem.jpg)",
-  }}></div>
+  }}></div> */}
       <div className="section ">
         <div className="container">
           <div className="row">

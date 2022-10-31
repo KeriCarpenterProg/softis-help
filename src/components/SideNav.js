@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Icon, Navbar, NavItem } from "react-materialize";
+import FetchGameData from "./FetchGameData";
 
 class SideNav extends Component {
   render() {
@@ -30,8 +31,8 @@ class SideNav extends Component {
           sidenav={
             <div>
               <li>Playstation 5 Games</li>
-              <li>More Information</li>
               <li>About Us</li>
+              <li><FetchGameData /></li>
             </div>
           }
         >

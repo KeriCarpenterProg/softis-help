@@ -17,8 +17,11 @@ function FetchGameData() {
           query: "fields video_id; where game = ("
         }
       ];
-        for(let a=0;a<games.length;a++){
-        for (let i=0;i<gameApiStrings.length;i++) {
+      // was games.length and gameApiStrings.length
+      const b = games.length;
+      const j = gameApiStrings.length;
+        for(let a=0;a<b;a++){
+        for (let i=0;i<j;i++) {
           await fetchIGDB(gameApiStrings[i], a);
         }
       }
@@ -46,28 +49,104 @@ function FetchGameData() {
         return response.json();
     }
 
+    function convertTimestamp(timestamp) {
+      var d = new Date(timestamp * 1000), // Convert the passed timestamp to milliseconds
+          yyyy = d.getFullYear(),
+          mm = ('0' + (d.getMonth() + 1)).slice(-2),  // Months are zero based. Add leading 0.
+          // dd = ('0' + d.getDate()).slice(-2),         // Add leading 0.
+          // hh = d.getHours(),
+          // h = hh,
+          // min = ('0' + d.getMinutes()).slice(-2),     // Add leading 0.
+          // ampm = 'AM',
+          time;
+  
+      // if (hh > 12) {
+      //     h = hh - 12;
+      //     ampm = 'PM';
+      // } else if (hh === 12) {
+      //     h = 12;
+      //     ampm = 'PM';
+      // } else if (hh === 0) {
+      //     h = 12;
+      // }
+  
+      // ie: 2014-03-24, 3:00 PM
+      time =  mm +'/'+ yyyy;
+      return time;
+  }
+
+  function printItems(item) {
+    let string = "";
+    const endString=",  ";
+    if(item === 48){
+      string = "Playstation 4";  
+    } else if(item === 12){
+      string = "Role-playing (RPG)";
+    } else if(item === 6){
+      string = "PC (Microsoft Windows)";
+    } else if(item === 49){
+      string = "Xbox One";
+    } else if(item === 25){
+      string = "Hack and slash/Beat 'em up";
+    } else if(item === 31){
+      string = "Adventure";
+    } else if(item === 5){
+      string = "Shooter";
+    } else if(item === 12){
+      string = "Role-playing (RPG)";
+    } else if(item === 12){
+      string = "Role-playing (RPG)";
+    } else
+      string = item;
+    return string+endString;
+  }
+
+    function printGame(data, gameIndex) {
+      let temp;
+      games[gameIndex].name = data.name;
+      games[gameIndex].summary = data.summary;
+      temp = convertTimestamp(data.first_release_date);
+      games[gameIndex].release = temp;
+
+      temp="";
+      let c;
+      for(let i=0;i<data.platforms.length;i++){
+        c=printItems(data.platforms[i]);
+        temp+=c;
+      }
+      games[gameIndex].platforms = temp;
+
+      temp="";
+      c="";
+      for(let i=0;i<data.genres.length;i++){
+        c=printItems(data.genres[i]);
+        temp+=c;
+      }
+      games[gameIndex].genre = temp;
+    }
+
+
+
     async function fetchIGDB(gameData, index) { 
         var cors = "https:///circumvent-cors.herokuapp.com/";
         var myHeaders = constructHeaders();
         let data = [];
         
         const endString = ");";
-        const igdbApiString = "https://api.igdb.com/v4/";
-        
-      
-        
+        const igdbApiString = "https://api.igdb.com/v4/";     
         let queryString = gameData.query+games[index].game_id+endString;
         let url = cors + igdbApiString + gameData.name;
         let fetchObject = createHeaders(myHeaders,queryString);
         let key = gameData.name+" "+games[index].game_id;
+
       
         try{
         if(localStorage.getItem(key)){
-          console.log("Grabbing from localstorage")
+          // console.log("Grabbing from localstorage")
           data = JSON.parse(localStorage.getItem(key)); 
         } else {
         data = await fetch(url,fetchObject).then(parseJSON);
-        console.log(JSON.stringify(data));
+        // console.log(JSON.stringify(data));
         localStorage.setItem(key,JSON.stringify(data))
         }
       
@@ -76,54 +155,17 @@ function FetchGameData() {
           console.log("Rate Limit or your token has expired!  If its a rate limit, try walking away for 20 minutes and trying again")
         }
         if (gameData.name === "games"){
-            console.log(gameData.name)
-        //   printGame(data[0]);
+            printGame(data[0], index);
         } else if (gameData.name === "covers") {
-            console.log(gameData.name);
-        //   gameObject[gameIndex].covers = data;
-        //   data.forEach(printImage);
+            console.log(games[index].name);
         } else if (gameData.name === "screenshots") {
-            console.log(gameData.name);
-        //   gameObject[gameIndex].screenshots = data;
-        //   data.forEach(printImage);
         } else if (gameData.name === "game_videos") {
-            console.log(gameData.name)
-        //   gameObject[gameIndex].game_videos = data;
-        //   data.forEach(printVideo);
         } 
         else {
           console.log("Something went wrong")
         }
       
       }
-
-    // async function fetchIGDB(gameData) { 
-        
-    //     // console.log("TODO:  Graft lines 115 to 156 from coddpen.io  https://codepen.io/kericarpenter/pen/JjvdYeY to here and get it to work");
-
-
-    //     // CORS circumvent is absolutely necessary and it took me a week to find this online
-    //     // Here's the StackOverflow link:  https://stackoverflow.com/questions/72088723/getting-cors-error-when-using-fetch-to-get-data/74222320#74222320
-    //     var cors = "https://circumvent-cors.herokuapp.com/";
-    //     var myHeaders = constructHeaders();
-    //     let data = [];
-  
-    //     const endString = ");";
-    //     const igdbApiString = "https://api.igdb.com/v4/";
-        
-
-        
-    //     let queryString = "fields image_id; where game=("+19560+endString;
-    //     let url = cors + igdbApiString + "screenshots";
-    //     let fetchObject = createHeaders(myHeaders,queryString);
-    //     let key = "screenshots"+" "+"19560";
-    //     // TODO:  It is trying to fetch but giving a 403 forbidden response.
-    //     data = await fetch(url,fetchObject).then(parseJSON);
-    //     let data2 = JSON.stringify(data);
-    //     console.log(data2);
-    //     localStorage.setItem(key,JSON.stringify(data))
-
-    // }
 
 
     return(

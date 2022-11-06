@@ -3,7 +3,7 @@ import { Icon, Navbar, NavItem } from "react-materialize";
 import FetchGameData from "./FetchGameData";
 import DropDown from "./Dropdown";
 
-class SideNav extends Component {
+class Header extends Component {
   render() {
     const {activeGame} = this.props;
     const {clickEvent} = this.props;
@@ -34,7 +34,7 @@ class SideNav extends Component {
           sidenav={
             <div>
               <li><DropDown
-                currentIndex={activeGame}
+                activeGame={activeGame}
                 clickEvent={clickEvent}
               /></li>
               <li><FetchGameData /></li>
@@ -58,4 +58,4 @@ class SideNav extends Component {
   }
 }
 
-export default SideNav;
+export default Header;

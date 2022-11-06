@@ -10,6 +10,8 @@ class DropDown extends React.Component {
   render() {
     const { games } = this.state;
     const {clickEvent} = this.props;
+    const {activeGame} = this.props;
+    console.log(activeGame);
     return (
       <div>
         {/* <section

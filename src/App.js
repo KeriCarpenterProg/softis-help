@@ -1,6 +1,6 @@
 import React from 'react';
-// import "./App.css";
-import SideNav from "./components/SideNav";
+import "./App.css";
+import Header from "./components/Header";
 import Text from './components/Text';
 import PictureBox from './components/PictureBox';
 import BottomOfPage from './components/BottomOfPage';
@@ -22,8 +22,8 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <SideNav 
-          currentIndex={activeGame}
+        <Header 
+          activeGame={activeGame}
           clickEvent={this.clickButton}
         />
 

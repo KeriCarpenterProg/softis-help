@@ -101,7 +101,7 @@ let games = [
     release: "Haven't looked",
     genre: "Fantasy",
     platforms: "PS4",
-    summary: "It's Minecraft.",
+    summary: "Data from IGDB has not been loaded.",
     cover: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1r7h.jpg",
     screenshots: [
       "https://images.igdb.com/igdb/image/upload/t_original/fn1wbuvikoacxt4zvfxl.jpg",

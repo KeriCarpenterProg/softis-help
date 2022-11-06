@@ -12,14 +12,12 @@ class DropDown extends React.Component {
     const {clickEvent} = this.props;
     return (
       <div>
-        <section
+        {/* <section
           id="search"
           className="section section-search grey lighten-1 white-text center scrollspy"
         >
           <div className="container">
-            <div className="row dropdown-row">
-                <h5>Select A Game</h5>
-
+            <div className="row dropdown-row"> */}
                 <Select
                   id="Select-45"
                   multiple={false}
@@ -47,9 +45,9 @@ class DropDown extends React.Component {
                 >
                   {games.map((name, index) => <option key={index} value={index}>{name}</option> )}
                 </Select>
-            </div>
+            {/* </div>
           </div>
-        </section>
+        </section> */}
       </div>
     );
   }

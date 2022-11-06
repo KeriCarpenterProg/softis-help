@@ -1,14 +1,17 @@
 import React, { Component } from "react";
 import { Icon, Navbar, NavItem } from "react-materialize";
 import FetchGameData from "./FetchGameData";
+import DropDown from "./Dropdown";
 
 class SideNav extends Component {
   render() {
+    const {activeGame} = this.props;
+    const {clickEvent} = this.props;
     return (
       <div>
         <Navbar
           className="grey darken-1"
-          centerLogo="true"
+          centerLogo={true}
           alignLinks="right"
           brand={
             <a className="brand-logo" href="#1">
@@ -30,15 +33,22 @@ class SideNav extends Component {
           }}
           sidenav={
             <div>
-              <li>Playstation 5 Games</li>
-              <li>About Us</li>
+              <li>Hi!</li>
               <li><FetchGameData /></li>
             </div>
           }
         >
-          <NavItem href="">Playstation 5 Games</NavItem>
-          <NavItem href="">More Information</NavItem>
-          <NavItem href="">About Us</NavItem>
+
+          <NavItem>
+              <DropDown
+                currentIndex={activeGame}
+                clickEvent={clickEvent}
+              />
+          </NavItem>
+
+         <NavItem>
+              <FetchGameData />
+         </NavItem>
         </Navbar>
       </div>
     );

@@ -1,6 +1,5 @@
 import React from 'react';
-import "./App.css";
-import DropDown from './components/Dropdown';
+// import "./App.css";
 import SideNav from "./components/SideNav";
 import Text from './components/Text';
 import PictureBox from './components/PictureBox';
@@ -12,8 +11,9 @@ class App extends React.Component {
   }
   clickButton = (index) => {
     // console.log("I clicked the button and the index value is " + index);
-    this.setState({ activeGame: index }, () =>
-      console.log("This is the value of activeGame " + this.state.activeGame)
+    this.setState({ activeGame: index }
+      // , () =>
+      // console.log("This is the value of activeGame " + this.state.activeGame)
     );
   }
   
@@ -22,8 +22,7 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <SideNav />
-        <DropDown
+        <SideNav 
           currentIndex={activeGame}
           clickEvent={this.clickButton}
         />

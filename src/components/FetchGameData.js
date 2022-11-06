@@ -170,7 +170,7 @@ function FetchGameData() {
 
     return(
         <div>   
-            <button onClick={callFourEndpoints}>Load Data from IGDB</button>
+            <button onClick={callFourEndpoints}>Load Data</button>
         </div>
     )
 }

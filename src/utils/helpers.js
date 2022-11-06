@@ -6,7 +6,7 @@ let games = [
     genre: "Shooter",
     platforms: "PS4",
     summary:
-      "The critically acclaimed Minecraft comes to PlayStation 4. Create your very own game world and explore, build and conquer.",
+      "Data from IGDB has not been loaded.  The critically acclaimed Minecraft comes to PlayStation 4. Create your very own game world and explore, build and conquer.",
     cover: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1ur4.jpg",
     screenshots: [
       "https://images.igdb.com/igdb/image/upload/t_original/f0mtqk9zdqoulrf0nfzu.jpg",

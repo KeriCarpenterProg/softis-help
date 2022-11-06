@@ -33,7 +33,10 @@ class SideNav extends Component {
           }}
           sidenav={
             <div>
-              <li>Hi!</li>
+              <li><DropDown
+                currentIndex={activeGame}
+                clickEvent={clickEvent}
+              /></li>
               <li><FetchGameData /></li>
             </div>
           }

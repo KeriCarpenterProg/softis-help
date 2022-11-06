@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Text from './components/Text';
 import PictureBox from './components/PictureBox';
 import BottomOfPage from './components/BottomOfPage';
+import FetchGameData from './components/FetchGameData';
 
 class App extends React.Component {
   state = {

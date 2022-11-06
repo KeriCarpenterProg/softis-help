@@ -9,8 +9,8 @@
   filter: blur(12px);
   background-size: cover;
 }
-.movetop {
-  position: absolute;
+.move-top {
+  position: relative;
   top:-300px;
 }
 .dropdown-row{

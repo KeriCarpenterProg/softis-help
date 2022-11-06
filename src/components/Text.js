@@ -17,14 +17,16 @@ class Text extends React.Component {
         <img src={value} alt={value} width="100%" />
       </div>
     ));
-    // const c = "style={backgroundImage: \"url("+games[activeGame].screenshots[0]+")\",}"
+    const backgroundImage = games[activeGame].screenshots[0];
+    console.log(`Background image: ${backgroundImage}`);
+
     return (
       <div>
-      {/* <div className="parallax-background" style={{
+      <div className="parallax-background" style={{
         backgroundImage:
-          "url(https://images.igdb.com/igdb/image/upload/t_original/sc6qem.jpg)",
-  }}></div> */}
-      <div className="section ">
+          `url(${backgroundImage})`
+  }}></div>
+      <div className="section move-top">
         <div className="container">
           <div className="row">
             <div className="col s12 m4">
